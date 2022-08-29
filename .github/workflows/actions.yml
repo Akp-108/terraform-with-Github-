@@ -48,7 +48,7 @@ jobs:
         working-directory: ${{env.working-directry}}
       
       - name: Terrafom Plan status
-        if: steps.plan.outcome == "failure"
+        if: steps.plan.outcome == 'failure'
         run: echo somthing error place check the code once!!!!!!
 
       - name: Terraform apply
