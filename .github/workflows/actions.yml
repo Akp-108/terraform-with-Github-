@@ -48,9 +48,15 @@ jobs:
         working-directory: ${{env.working-directry}}
         # continue-on-error: true
 
+      # - name: Terraform apply
+      #   id: apply
+      #   run: terraform apply -auto-approve
+      #   working-directory: ${{env.working-directry}}
+      #   # continue-on-error: true
+
       - name: Terraform apply
-        id: apply
-        run: terraform apply -auto-approve
+        id: destroy
+        run: terraform destroy -auto-approve
         working-directory: ${{env.working-directry}}
         # continue-on-error: true
       
