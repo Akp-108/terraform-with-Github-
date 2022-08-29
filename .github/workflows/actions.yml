@@ -12,26 +12,33 @@ jobs:
     runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
-        - name: run a one-line script
-          run: echo this is terraform code
 
-        - uses: actions/checkout@v2
-        - uses: hashicorp/setup-terraform@v2
+        - name: Run a one-line script
+          run: echo this is code for terraform file
 
-        - name: Terraform fmt
-          id: fmt
-          run: terraform fmt -check
-          continue-on-error: true
 
-        - name: Terraform Init
-          id: init
-          run: terraform init
 
-        - name: Terraform Validate
-          id: validate
-          run: terraform validate -no-color
+        # - name: run a one-line script
+        #   run: echo this is terraform code
 
-        - name: Terraform Plan
-          id: plan
-          run: terraform plan -no-color
-          continue-on-error: true
+        # - uses: actions/checkout@v2
+        # - uses: hashicorp/setup-terraform@v2
+
+        # - name: Terraform fmt
+        #   id: fmt
+        #   run: terraform fmt -check
+        #   continue-on-error: true
+
+        # - name: Terraform Init
+        #   id: init
+        #   run: terraform init
+
+        # - name: Terraform Validate
+        #   id: validate
+        #   run: terraform validate -no-color
+
+        # - name: Terraform Plan
+        #   id: plan
+        #   run: terraform plan -no-color
+        #   continue-on-error: true
+        
