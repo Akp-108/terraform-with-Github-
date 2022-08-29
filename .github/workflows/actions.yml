@@ -1,5 +1,8 @@
 name: Terraform
 
+env:
+  working-directry: ./user
+
 on: 
   push: 
     branches: ["main"]
@@ -7,19 +10,19 @@ on:
     workflow_dispatch:
 
 
+
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env: 
+      AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+      AWS_SESSION_TOKEN: ${{secrets.AWS_SESSION_TOKEN}}
     steps:
       - uses: actions/checkout@v3
 
       - name: Run a one-line script
         run: echo this is code for terraform file
-
-
-
-      - name: run a one-line script
-        run: echo this is terraform code
 
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v2
@@ -32,18 +35,22 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
+        working-directory: ${{env.working-directry}}
 
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+        working-directory: ${{env.working-directry}}
 
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color
-        continue-on-error: true
+        working-directory: ${{env.working-directry}}
+        # continue-on-error: true
 
       - name: Terraform apply
         id: apply
         run: terraform apply -no-color
-        continue-on-error: true
+        working-directory: ${{env.working-directry}}
+        # continue-on-error: true
       
