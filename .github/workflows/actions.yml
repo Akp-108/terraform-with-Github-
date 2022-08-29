@@ -54,7 +54,7 @@ jobs:
       #   working-directory: ${{env.working-directry}}
       #   # continue-on-error: true
 
-      - name: Terraform apply
+      - name: Terraform destroy
         id: destroy
         run: terraform destroy -auto-approve
         working-directory: ${{env.working-directry}}
