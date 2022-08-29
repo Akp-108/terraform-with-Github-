@@ -14,7 +14,7 @@ provider "aws" {
 
 
 resource "aws_iam_user" "lb" {
-  name = "terraform2908"
+  name = "terraform29082022"
   path = "/system/"
 
   tags = {
