@@ -51,14 +51,14 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: echo somthing error place check the code once!!!!!!
 
-      - name: Terraform apply
-        id: apply
-        if: steps.plan.outcome != 'failure'
-        run: terraform apply -auto-approve
-        working-directory: ${{env.working-directry}}
-
-      # - name: Terraform destroy
-      #   id: destroy
-      #   run: terraform destroy -auto-approve
+      # - name: Terraform apply
+      #   id: apply
+      #   if: steps.plan.outcome != 'failure'
+      #   run: terraform apply -auto-approve
       #   working-directory: ${{env.working-directry}}
+
+      - name: Terraform destroy
+        id: destroy
+        run: terraform destroy -auto-approve
+        working-directory: ${{env.working-directry}}
       
